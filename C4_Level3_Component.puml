@@ -1,0 +1,43 @@
+@startuml C4_Level3_Component
+
+title C4 Level 3 - Component Diagram
+
+rectangle "GameManager" {
+
+    rectangle "Board Display\n\ndisplay_board()" as BoardDisplay
+
+    rectangle "Available Move Manager\n\nget_available_moves()" as AvailableMoves
+
+    rectangle "Move Manager\n\nmake_move()" as MoveManager
+
+    rectangle "Winner Checker\n\ncheck_winner()" as WinnerChecker
+
+    rectangle "Game State\n\nboard\ncurrent_player" as GameState
+}
+
+rectangle "GameAgent" {
+
+    rectangle "Move Selection\n\nchoose_move()" as ChooseMove
+}
+
+rectangle "Game Flow\n\nplay_game()" as GameFlow
+
+GameFlow --> ChooseMove : Requests move
+
+ChooseMove --> AvailableMoves : Gets available moves
+
+AvailableMoves --> GameState : Reads board
+
+ChooseMove --> MoveManager : Selected position
+
+MoveManager --> GameState : Updates board
+
+GameFlow --> WinnerChecker : Checks result
+
+WinnerChecker --> GameState : Reads board
+
+GameFlow --> BoardDisplay : Displays board
+
+BoardDisplay --> GameState : Reads board
+
+@enduml

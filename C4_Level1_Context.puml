@@ -1,0 +1,14 @@
+@startuml C4_Level1_Context
+
+title C4 Level 1 - System Context
+
+actor User
+
+rectangle "Multi-Agent Tic-Tac-Toe\nGame System" as GameSystem
+
+rectangle "Game Result" as GameResult
+
+User --> GameSystem : Plays game
+GameSystem --> GameResult : Produces result
+
+@enduml

@@ -6,23 +6,29 @@ def linear_search(arr, key):
             return i
     return -1
 
-
+# Create array with 100000 elements
 arr = list(range(1, 100001))
 
-# Best Case
+# Best Case (element at first position)
 start = time.perf_counter()
-linear_search(arr, 1)
+result = linear_search(arr, 1)
 end = time.perf_counter()
-print("Best Case Time:", end - start, "seconds")
+print("Best Case:")
+print("Index =", result)
+print("Execution Time =", end - start, "seconds\n")
 
-# Average Case
+# Average Case (element in middle)
 start = time.perf_counter()
-linear_search(arr, 50000)
+result = linear_search(arr, 50000)
 end = time.perf_counter()
-print("Average Case Time:", end - start, "seconds")
+print("Average Case:")
+print("Index =", result)
+print("Execution Time =", end - start, "seconds\n")
 
-# Worst Case
+# Worst Case (element at last position)
 start = time.perf_counter()
-linear_search(arr, 100000)
+result = linear_search(arr, 100000)
 end = time.perf_counter()
-print("Worst Case Time:", end - start, "seconds")
+print("Worst Case:")
+print("Index =", result)
+print("Execution Time =", end - start, "seconds")

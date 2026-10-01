@@ -16,23 +16,29 @@ def binary_search(arr, key):
 
     return -1
 
-
+# Create array with 100000 elements
 arr = list(range(1, 100001))
 
-# Best Case
+# Best Case (middle element)
 start = time.perf_counter()
-binary_search(arr, 50000)
+result = binary_search(arr, 50000)
 end = time.perf_counter()
-print("Best Case Time:", end - start, "seconds")
+print("Best Case:")
+print("Index =", result)
+print("Execution Time =", end - start, "seconds\n")
 
 # Average Case
 start = time.perf_counter()
-binary_search(arr, 25000)
+result = binary_search(arr, 25000)
 end = time.perf_counter()
-print("Average Case Time:", end - start, "seconds")
+print("Average Case:")
+print("Index =", result)
+print("Execution Time =", end - start, "seconds\n")
 
-# Worst Case
+# Worst Case (element not present)
 start = time.perf_counter()
-binary_search(arr, 100001)
+result = binary_search(arr, 100001)
 end = time.perf_counter()
-print("Worst Case Time:", end - start, "seconds")
+print("Worst Case:")
+print("Index =", result)
+print("Execution Time =", end - start, "seconds")
