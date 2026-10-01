@@ -1,0 +1,33 @@
+@startuml C4_Level4_Code
+
+title C4 Level 4 - Code Level
+
+skinparam backgroundColor white
+skinparam shadowing false
+
+allowmixing
+
+class GameManager {
+    - board
+    - current_player
+    + display_board()
+    + get_available_moves()
+    + make_move()
+    + check_winner()
+}
+
+class GameAgent {
+    - name
+    - symbol
+    + choose_move()
+}
+
+rectangle "play_game()" as PlayGame
+
+PlayGame --> GameManager : manages game
+PlayGame --> GameAgent : creates agents
+GameAgent --> GameManager : uses game state
+GameManager --> GameManager : updates board
+GameManager --> GameManager : checks winner
+
+@enduml
